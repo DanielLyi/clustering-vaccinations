@@ -1,57 +1,68 @@
 package com.danylo;
 
-import com.danylo.logic.Centroid;
-import com.danylo.logic.Clustering;
 import com.danylo.logic.Country;
+import com.danylo.visual.MainFrame;
+import com.formdev.flatlaf.FlatLightLaf;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class Main {
-    public static void main(String[] args) throws URISyntaxException, IOException {
-        List<Country> countries = readCountriesData();
-        Map<Centroid, List<Country>> clusters = Clustering.getClusters(countries, 10);
-        System.out.println(clusters);
-        for (Map.Entry<Centroid, List<Country>> cluster : clusters.entrySet()) {
-            if(cluster.getValue().isEmpty()) {
-                System.out.println("Empty cluster..");
+    public static void main(String[] args) {
+        FlatLightLaf.install();
+        Locale.setDefault(Locale.ENGLISH);
+        EventQueue.invokeLater(() -> {
+            List<Country> countries = null;
+            try {
+                countries = readCountriesData();
+            } catch (URISyntaxException | IOException e) {
+                e.printStackTrace();
+            }
+            MainFrame mainFrame = new MainFrame(countries);
+            mainFrame.setVisible(true);
+            /*Map<Centroid, List<Country>> clusters = Clustering.getClusters(countries, 10);
+            System.out.println(clusters);
+            for (Map.Entry<Centroid, List<Country>> cluster : clusters.entrySet()) {
+                if (cluster.getValue().isEmpty()) {
+                    System.out.println("Empty cluster..");
+                    System.out.println();
+                    continue;
+                }
+                System.out.println("Cluster: " + cluster.getKey());
+                for (Country country : cluster.getValue()) {
+                    System.out.printf("%s, ", country.name());
+                }
                 System.out.println();
-                continue;
+                System.out.println();
             }
-            System.out.println("Cluster: " + cluster.getKey());
-            for (Country country : cluster.getValue()) {
-                System.out.printf("%s, ", country.name());
+            JSONArray array = new JSONArray();
+            for (Map.Entry<Centroid, List<Country>> cluster : clusters.entrySet()) {
+                JSONArray countriesArr = new JSONArray();
+                for (Country country : cluster.getValue()) {
+                    countriesArr.put(country.name());
+                }
+                JSONObject clusterObj = new JSONObject();
+                clusterObj.put("centroid", cluster.getKey().toString());
+                clusterObj.put("countries", countriesArr);
+                array.put(clusterObj);
             }
-            System.out.println();
-            System.out.println();
-        }
-        JSONArray array = new JSONArray();
-        for (Map.Entry<Centroid, List<Country>> cluster : clusters.entrySet()) {
-            JSONArray countriesArr = new JSONArray();
-            for (Country country : cluster.getValue()) {
-                countriesArr.put(country.name());
-            }
-            JSONObject clusterObj = new JSONObject();
-            clusterObj.put("centroid", cluster.getKey().toString());
-            clusterObj.put("countries", countriesArr);
-            array.put(clusterObj);
-        }
-        System.out.println(array);
+            System.out.println(array);*/
+        });
+
     }
 
     private static List<Country> readCountriesData() throws URISyntaxException, IOException {
         JSONArray countriesArray = new JSONArray(Files.readString(Path.of(Objects.requireNonNull(
-                Main.class.getResource("/vaccinations.json")).toURI())));
+                Main.class.getResource("/res/vaccinations.json")).toURI())));
         List<Country> countries = new ArrayList<>();
         for (int i = 0; i < countriesArray.length(); i++) {
             JSONObject countryObj = countriesArray.getJSONObject(i);
