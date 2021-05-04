@@ -1,0 +1,184 @@
+[
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=37.052, fullyVaccinatedPerHundred=25.674]",
+    "countries": [
+      "Bahrain",
+      "Chile",
+      "Hungary",
+      "Monaco",
+      "North America",
+      "Qatar",
+      "Serbia",
+      "Turks and Caicos Islands",
+      "United States",
+      "Uruguay"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=111.32, fullyVaccinatedPerHundred=99.76]",
+    "countries": [
+      "Gibraltar"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=8.060815926667035, fullyVaccinatedPerHundred=60.47696383379597]",
+    "countries": []
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=68.94, fullyVaccinatedPerHundred=56.50666666666666]",
+    "countries": [
+      "Falkland Islands",
+      "Israel",
+      "Seychelles"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=12.8704, fullyVaccinatedPerHundred=5.5772]",
+    "countries": [
+      "Argentina",
+      "Azerbaijan",
+      "Brazil",
+      "Bulgaria",
+      "Cambodia",
+      "Costa Rica",
+      "Croatia",
+      "Dominican Republic",
+      "El Salvador",
+      "Greenland",
+      "Grenada",
+      "Guyana",
+      "Hong Kong",
+      "India",
+      "Kuwait",
+      "Latvia",
+      "Macao",
+      "Mexico",
+      "Morocco",
+      "Northern Cyprus",
+      "Panama",
+      "Romania",
+      "Russia",
+      "South America",
+      "Turkey"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=25.148857142857143, fullyVaccinatedPerHundred=9.084]",
+    "countries": [
+      "Andorra",
+      "Anguilla",
+      "Austria",
+      "Belgium",
+      "Canada",
+      "Cyprus",
+      "Czechia",
+      "Denmark",
+      "Dominica",
+      "Estonia",
+      "Europe",
+      "European Union",
+      "Faeroe Islands",
+      "Finland",
+      "France",
+      "Germany",
+      "Greece",
+      "Iceland",
+      "Ireland",
+      "Italy",
+      "Liechtenstein",
+      "Lithuania",
+      "Luxembourg",
+      "Mongolia",
+      "Montserrat",
+      "Netherlands",
+      "Norway",
+      "Poland",
+      "Portugal",
+      "Singapore",
+      "Slovakia",
+      "Slovenia",
+      "Spain",
+      "Sweden",
+      "Switzerland"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=66.86, fullyVaccinatedPerHundred=18.55]",
+    "countries": [
+      "Isle of Man"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=52.62769230769231, fullyVaccinatedPerHundred=22.176923076923078]",
+    "countries": [
+      "Aruba",
+      "Curacao",
+      "England",
+      "Guernsey",
+      "Jersey",
+      "Maldives",
+      "Malta",
+      "Northern Ireland",
+      "Saint Helena",
+      "San Marino",
+      "Scotland",
+      "United Kingdom",
+      "Wales"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=2.986666666666667, fullyVaccinatedPerHundred=0.9954761904761905]",
+    "countries": [
+      "Africa",
+      "Albania",
+      "Asia",
+      "Bangladesh",
+      "Belarus",
+      "Bolivia",
+      "Colombia",
+      "Ecuador",
+      "Equatorial Guinea",
+      "Gabon",
+      "Guatemala",
+      "Guinea",
+      "Honduras",
+      "Indonesia",
+      "Iran",
+      "Japan",
+      "Jordan",
+      "Kazakhstan",
+      "Kyrgyzstan",
+      "Laos",
+      "Lebanon",
+      "Malaysia",
+      "Moldova",
+      "Montenegro",
+      "Myanmar",
+      "Namibia",
+      "New Zealand",
+      "Oceania",
+      "Oman",
+      "Palestine",
+      "Paraguay",
+      "Peru",
+      "Philippines",
+      "Sierra Leone",
+      "South Africa",
+      "South Korea",
+      "Sri Lanka",
+      "Thailand",
+      "Tunisia",
+      "Ukraine",
+      "World",
+      "Zimbabwe"
+    ]
+  },
+  {
+    "centroid": "Centroid[atLeastOneDosePerHundred=52.46666666666667, fullyVaccinatedPerHundred=40.833333333333336]",
+    "countries": [
+      "Bermuda",
+      "Cayman Islands",
+      "United Arab Emirates"
+    ]
+  }
+]
