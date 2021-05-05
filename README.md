@@ -24,5 +24,5 @@ Natalia Komleva (komleva@opu.ua) (scientific mentor and teacher)
 
 Зроблено
 Данилом Ляховецьким (danylo.liakh@gmail.com, DanielLyi) та
-Наталією Комлевою (komleva@opu.ua) (научковий керівник та викладач)
+Наталією Комлевою (komleva@opu.ua) (науковий керівник та викладач)
 
