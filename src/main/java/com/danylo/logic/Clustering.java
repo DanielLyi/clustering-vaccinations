@@ -32,10 +32,15 @@ public class Clustering {
         List<Centroid> centroids = new ArrayList<>(numOfClusters);
 
         for (int i = 0; i < numOfClusters; i++) {
-            double atLeastOneDosePerHundred = minAtLeastOneDosePerHundred
-                    + (maxAtLeastOneDosePerHundred - minAtLeastOneDosePerHundred) * Math.random();
-            double fullyVaccinatedPerHundred = minFullyVaccinatedPerHundred
-                    + (maxFullyVaccinatedPerHundred - minFullyVaccinatedPerHundred) * Math.random();
+            double atLeastOneDosePerHundred;
+            double fullyVaccinatedPerHundred;
+            do {
+                atLeastOneDosePerHundred = minAtLeastOneDosePerHundred
+                        + (maxAtLeastOneDosePerHundred - minAtLeastOneDosePerHundred) * Math.random();
+                fullyVaccinatedPerHundred = minFullyVaccinatedPerHundred
+                        + (maxFullyVaccinatedPerHundred - minFullyVaccinatedPerHundred) * Math.random();
+            } while (atLeastOneDosePerHundred > fullyVaccinatedPerHundred);
+
             centroids.add(new Centroid(atLeastOneDosePerHundred, fullyVaccinatedPerHundred));
         }
 
