@@ -8,7 +8,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,40 +32,16 @@ public class Main {
             }
             MainFrame mainFrame = new MainFrame(countries);
             mainFrame.setVisible(true);
-            /*Map<Centroid, List<Country>> clusters = Clustering.getClusters(countries, 10);
-            System.out.println(clusters);
-            for (Map.Entry<Centroid, List<Country>> cluster : clusters.entrySet()) {
-                if (cluster.getValue().isEmpty()) {
-                    System.out.println("Empty cluster..");
-                    System.out.println();
-                    continue;
-                }
-                System.out.println("Cluster: " + cluster.getKey());
-                for (Country country : cluster.getValue()) {
-                    System.out.printf("%s, ", country.name());
-                }
-                System.out.println();
-                System.out.println();
-            }
-            JSONArray array = new JSONArray();
-            for (Map.Entry<Centroid, List<Country>> cluster : clusters.entrySet()) {
-                JSONArray countriesArr = new JSONArray();
-                for (Country country : cluster.getValue()) {
-                    countriesArr.put(country.name());
-                }
-                JSONObject clusterObj = new JSONObject();
-                clusterObj.put("centroid", cluster.getKey().toString());
-                clusterObj.put("countries", countriesArr);
-                array.put(clusterObj);
-            }
-            System.out.println(array);*/
         });
 
     }
 
     private static List<Country> readCountriesData() throws URISyntaxException, IOException {
-        JSONArray countriesArray = new JSONArray(Files.readString(Path.of(Objects.requireNonNull(
-                Main.class.getResource("/res/vaccinations.json")).toURI())));
+        InputStream in = Main.class.getResourceAsStream("/vaccinations.json");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        StringBuilder jsonText = new StringBuilder();
+        reader.lines().forEach(jsonText::append);
+        JSONArray countriesArray = new JSONArray(jsonText.toString());
         List<Country> countries = new ArrayList<>();
         for (int i = 0; i < countriesArray.length(); i++) {
             JSONObject countryObj = countriesArray.getJSONObject(i);
@@ -73,13 +52,13 @@ public class Main {
             Double latestAtLeastOneDosePerHundred = null;
             try {
                 latestAtLeastOneDosePerHundred = data.getJSONObject(0).getDouble("people_vaccinated_per_hundred");
-            } catch (JSONException e) {
+            } catch (JSONException ignored) {
             }
 
             Double latestFullyVaccinatedPerHundred = null;
             try {
                 latestFullyVaccinatedPerHundred = data.getJSONObject(0).getDouble("people_fully_vaccinated_per_hundred");
-            } catch (JSONException e) {
+            } catch (JSONException ignored) {
             }
 
             for (int j = 1; j < data.length(); j++) {
@@ -90,13 +69,13 @@ public class Main {
                     Double atLeastOneDosePerHundred = null;
                     try {
                         atLeastOneDosePerHundred = dailyStats.getDouble("people_vaccinated_per_hundred");
-                    } catch (JSONException e) {
+                    } catch (JSONException ignored) {
                     }
 
                     Double fullyVaccinatedPerHundred = null;
                     try {
                         fullyVaccinatedPerHundred = dailyStats.getDouble("people_fully_vaccinated_per_hundred");
-                    } catch (JSONException e) {
+                    } catch (JSONException ignored) {
                     }
 
 
